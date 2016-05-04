@@ -3,7 +3,7 @@ package org.sealoflove.euler.six;
 import java.util.List;
 
 import org.sealoflove.euler.Task;
-import org.sealoflove.euler.two.Task018;
+import org.sealoflove.euler.zero.one.Task018;
 
 public class Task067 implements Task {
 
