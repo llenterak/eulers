@@ -22,7 +22,7 @@ public class Task003 implements Task {
 				allNumbers[i * j] = 0;
 			}
 		}	
-		return Arrays.asList(allNumbers).stream().filter(z -> z != 0).collect(Collectors.toList());
+		return Arrays.asList(allNumbers).stream().filter(z -> z != 0 && z != 1).collect(Collectors.toList());
 	}
 	
 	private Integer getLargestPrimeDivider(Long limit) {

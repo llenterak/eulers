@@ -43,7 +43,18 @@ public class ArrayUtils {
 			e.printStackTrace();
 		}
 		return res;
+	}
 	
+	public static List<String> readNamesFromFile(String path) {
+		List<String> res = new ArrayList<>();
+		try (Stream<String> stream = Files.lines(Paths.get(path))) {
+			stream.forEachOrdered(z -> {
+				res.addAll(Arrays.stream(z.split(",")).map(y -> y.replaceAll("\"", "")).collect(Collectors.toList()));
+			});
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 	
 	public static List<List<Integer>> readSquareArrayFromFile(String path) {
