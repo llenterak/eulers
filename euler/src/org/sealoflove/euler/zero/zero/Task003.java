@@ -12,16 +12,25 @@ public class Task003 implements Task {
 	
 
 	
+	
 	public static List<Integer> getPrimeNumbers(Integer limit) {
+		return getPrimeNumbers(limit, null);
+	}
+	
+	public static List<Integer> getPrimeNumbers(Integer limit, Integer lowerLimit) {
 		Integer[] allNumbers = new Integer[limit];
 		for (int i = 0; i < limit; i++) {
 			allNumbers[i] = i;
 		}
 		for (Integer i = 2; i < limit / 2; i++) {
-			for (Integer j = 2; i * j < limit; j++) {
-				allNumbers[i * j] = 0;
-			}
-		}	
+			if (allNumbers[i] != 0)
+				for (Integer j = 2; i * j < limit; j++) {
+					allNumbers[i * j] = 0;
+				}
+		}
+		if (lowerLimit != null) {
+			return Arrays.asList(allNumbers).stream().filter(z -> z != 0 && z != 1 && z > lowerLimit).collect(Collectors.toList());
+		}
 		return Arrays.asList(allNumbers).stream().filter(z -> z != 0 && z != 1).collect(Collectors.toList());
 	}
 	
